@@ -6,11 +6,13 @@ begin
   Jeweler::Tasks.new do |gem|
     gem.name = "opensecrets"
     gem.summary = %Q{OpenSecrets.org API Ruby Wrapper}
-    gem.description = %Q{TODO: longer description of your gem}
+    gem.description = %Q{OpenSecrets are the best kind. Created as a community service as requested by the Sunlight Foundation.}
     gem.email = "glenn@rempe.us"
     gem.homepage = "http://github.com/grempe/opensecrets"
     gem.authors = ["Glenn Rempe"]
-    gem.add_development_dependency "thoughtbot-shoulda", ">= 0"
+    gem.add_dependency "httparty", ">= 0.4.5"
+    gem.add_dependency "crack", ">= 0.1.4"
+    gem.add_development_dependency "shoulda", ">= 0"
     gem.add_development_dependency "yard", ">= 0"
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
@@ -35,7 +37,7 @@ begin
   end
 rescue LoadError
   task :rcov do
-    abort "RCov is not available. In order to run rcov, you must: sudo gem install spicycode-rcov"
+    abort "RCov is not available. In order to run rcov, you must: sudo gem install rcov"
   end
 end
 
