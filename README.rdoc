@@ -11,7 +11,7 @@ like to contribute please see : http://sunlightlabs.com/projects/opensecrets-rub
 
 == Installation
 
-    [sudo] gem install opensecrets
+    [sudo] gem install opensecrets -s http://gemcutter.org
 
 == Usage
 
