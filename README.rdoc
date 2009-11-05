@@ -26,6 +26,13 @@ like to contribute please see : http://sunlightlabs.com/projects/opensecrets-rub
     cand = OpenSecrets::Candidate.new('YOUR OPEN SECRETS API KEY')
     pp cand.summary({:cid => 'N00007360'})["response"]
 
+
+== Project Websites
+
+* Project Home : http://github.com/grempe/opensecrets/tree/master
+* API Documentation : http://rdoc.info/projects/grempe/opensecrets
+* Report Bugs / Request Features : http://github.com/grempe/opensecrets/issues
+
 == Note on Patches/Pull Requests
 
 * Fork the project.
