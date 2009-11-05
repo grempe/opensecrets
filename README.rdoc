@@ -33,6 +33,11 @@ like to contribute please see : http://sunlightlabs.com/projects/opensecrets-rub
 * API Documentation : http://rdoc.info/projects/grempe/opensecrets
 * Report Bugs / Request Features : http://github.com/grempe/opensecrets/issues
 
+
+== TODO
+
+* Shoulda Tests. As there are currently none.
+
 == Note on Patches/Pull Requests
 
 * Fork the project.
