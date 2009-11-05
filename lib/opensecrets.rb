@@ -45,7 +45,7 @@ module OpenSecrets
       self.class.get("/", :query => options)
     end
 
-  end
+  end # member
 
   class Candidate
     include HTTParty
@@ -129,7 +129,40 @@ module OpenSecrets
       self.class.get("/", :query => options)
     end
 
-  end
+  end # candidate
+
+  class Committee
+    include HTTParty
+    base_uri 'http://www.opensecrets.org/api'
+    default_params :output => 'xml'
+    format :xml
+
+    # OpenSecrets information about a specific committee.
+    #
+    # @option options [String] apikey ("") an OpenSecrets API Key
+    #
+    def initialize(apikey)
+      raise ArgumentError, 'You must provide an API Key' if apikey.blank?
+      self.class.default_params :apikey => apikey
+    end
+
+    # Provides summary fundraising information for a specific committee, industry and Congress number.
+    #
+    # See : http://www.opensecrets.org/api/?method=congCmteIndus&output=doc
+    #
+    # @option options [String] :cmte ("") Committee ID in CQ format
+    # @option options [String] :congno ("") Congress Number (like 110)
+    # @option options [String] :indus ("") Industry code
+    #
+    def by_industry(options = {})
+      raise ArgumentError, 'You must provide a :cmte option' if options[:cmte].blank?
+      raise ArgumentError, 'You must provide a :congno option' if options[:congno].blank?
+      raise ArgumentError, 'You must provide a :indus option' if options[:indus].blank?
+      options.merge!({:method => 'congCmteIndus'})
+      self.class.get("/", :query => options)
+    end
+
+  end # committee
 
 end
 
