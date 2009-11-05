@@ -2,13 +2,17 @@ require 'httparty'
 
 module OpenSecrets
 
-  class Member
+  class Base
+
     include HTTParty
     base_uri 'http://www.opensecrets.org/api'
     default_params :output => 'xml'
     format :xml
 
-    # OpenSecrets information about a Member of Congress.
+    # OpenSecrets Base constructor.  All OpenSecrets API classes inherit from this one which provides
+    # the common initialization function.  For convenience you can skip providing an 'apikey' to the
+    # constructor if you instead export a OPENSECRETS_API_KEY environment variable which is set to the
+    # value of your API key.
     #
     # @option options [String] apikey (nil) an OpenSecrets API Key, this can also be provided in an OPENSECRETS_API_KEY shell environment variable for security and convenience.
     #
@@ -17,6 +21,10 @@ module OpenSecrets
       raise ArgumentError, 'You must provide an API Key' if key.blank?
       self.class.default_params :apikey => key
     end
+
+  end
+
+  class Member < OpenSecrets::Base
 
     # Returns Personal Financial Disclosure (PFD) information for a member of Congress.
     #
@@ -48,21 +56,7 @@ module OpenSecrets
 
   end # member
 
-  class Candidate
-    include HTTParty
-    base_uri 'http://www.opensecrets.org/api'
-    default_params :output => 'xml'
-    format :xml
-
-    # OpenSecrets information about a Candidate.
-    #
-    # @option options [String] apikey (nil) an OpenSecrets API Key, this can also be provided in an OPENSECRETS_API_KEY shell environment variable for security and convenience.
-    #
-    def initialize(apikey = nil)
-      key =  apikey ||= ENV['OPENSECRETS_API_KEY']
-      raise ArgumentError, 'You must provide an API Key' if key.blank?
-      self.class.default_params :apikey => key
-    end
+  class Candidate < OpenSecrets::Base
 
     # Provides summary fundraising information for specified politician.
     #
@@ -133,21 +127,7 @@ module OpenSecrets
 
   end # candidate
 
-  class Committee
-    include HTTParty
-    base_uri 'http://www.opensecrets.org/api'
-    default_params :output => 'xml'
-    format :xml
-
-    # OpenSecrets information about a specific committee.
-    #
-    # @option options [String] apikey (nil) an OpenSecrets API Key, this can also be provided in an OPENSECRETS_API_KEY shell environment variable for security and convenience.
-    #
-    def initialize(apikey = nil)
-      key =  apikey ||= ENV['OPENSECRETS_API_KEY']
-      raise ArgumentError, 'You must provide an API Key' if key.blank?
-      self.class.default_params :apikey => key
-    end
+  class Committee < OpenSecrets::Base
 
     # Provides summary fundraising information for a specific committee, industry and Congress number.
     #
