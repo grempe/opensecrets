@@ -10,11 +10,12 @@ module OpenSecrets
 
     # OpenSecrets information about a Member of Congress.
     #
-    # @option options [String] apikey ("") an OpenSecrets API Key
+    # @option options [String] apikey (nil) an OpenSecrets API Key, this can also be provided in an OPENSECRETS_API_KEY shell environment variable for security and convenience.
     #
-    def initialize(apikey)
-      raise ArgumentError, 'You must provide an API Key' if apikey.blank?
-      self.class.default_params :apikey => apikey
+    def initialize(apikey = nil)
+      key =  apikey ||= ENV['OPENSECRETS_API_KEY']
+      raise ArgumentError, 'You must provide an API Key' if key.blank?
+      self.class.default_params :apikey => key
     end
 
     # Returns Personal Financial Disclosure (PFD) information for a member of Congress.
@@ -55,11 +56,12 @@ module OpenSecrets
 
     # OpenSecrets information about a Candidate.
     #
-    # @option options [String] apikey ("") an OpenSecrets API Key
+    # @option options [String] apikey (nil) an OpenSecrets API Key, this can also be provided in an OPENSECRETS_API_KEY shell environment variable for security and convenience.
     #
-    def initialize(apikey)
-      raise ArgumentError, 'You must provide an API Key' if apikey.blank?
-      self.class.default_params :apikey => apikey
+    def initialize(apikey = nil)
+      key =  apikey ||= ENV['OPENSECRETS_API_KEY']
+      raise ArgumentError, 'You must provide an API Key' if key.blank?
+      self.class.default_params :apikey => key
     end
 
     # Provides summary fundraising information for specified politician.
@@ -139,11 +141,12 @@ module OpenSecrets
 
     # OpenSecrets information about a specific committee.
     #
-    # @option options [String] apikey ("") an OpenSecrets API Key
+    # @option options [String] apikey (nil) an OpenSecrets API Key, this can also be provided in an OPENSECRETS_API_KEY shell environment variable for security and convenience.
     #
-    def initialize(apikey)
-      raise ArgumentError, 'You must provide an API Key' if apikey.blank?
-      self.class.default_params :apikey => apikey
+    def initialize(apikey = nil)
+      key =  apikey ||= ENV['OPENSECRETS_API_KEY']
+      raise ArgumentError, 'You must provide an API Key' if key.blank?
+      self.class.default_params :apikey => key
     end
 
     # Provides summary fundraising information for a specific committee, industry and Congress number.
