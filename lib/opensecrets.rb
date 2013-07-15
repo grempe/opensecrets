@@ -18,7 +18,7 @@ module OpenSecrets
     #
     def initialize(apikey = nil)
       key =  apikey ||= ENV['OPENSECRETS_API_KEY']
-      raise ArgumentError, 'You must provide an API Key' if key.blank?
+      raise ArgumentError, 'You must provide an API Key' if key.nil? || key.empty?
       self.class.default_params :apikey => key
     end
 
@@ -34,8 +34,8 @@ module OpenSecrets
     # @option options [String] :year ("") Get data for specified year.
     #
     def pfd(options = {})
-      raise ArgumentError, 'You must provide a :cid option' if options[:cid].blank?
-      raise ArgumentError, 'You must provide a :year option' if options[:year].blank?
+      raise ArgumentError, 'You must provide a :cid option' if options[:cid].nil? || options[:cid].empty?
+      raise ArgumentError, 'You must provide a :year option' if options[:year].nil? || options[:year].empty?
       options.merge!({:method => 'memPFDprofile'})
       self.class.get("/", :query => options)
     end
@@ -48,8 +48,8 @@ module OpenSecrets
     # @option options [String] :year ("") Get data for specified year.
     #
     def trips(options = {})
-      raise ArgumentError, 'You must provide a :cid option' if options[:cid].blank?
-      raise ArgumentError, 'You must provide a :year option' if options[:year].blank?
+      raise ArgumentError, 'You must provide a :cid option' if options[:cid].nil? || options[:cid].empty?
+      raise ArgumentError, 'You must provide a :year option' if options[:year].nil? || options[:year].empty?
       options.merge!({:method => 'memTravelTrips'})
       self.class.get("/", :query => options)
     end
@@ -66,7 +66,7 @@ module OpenSecrets
     # @option options [optional, String] :cycle ("") blank values returns current cycle.
     #
     def summary(options = {})
-      raise ArgumentError, 'You must provide a :cid option' if options[:cid].blank?
+      raise ArgumentError, 'You must provide a :cid option' if options[:cid].nil? || options[:cid].empty?
       options.merge!({:method => 'candSummary'})
       self.class.get("/", :query => options)
     end
@@ -79,7 +79,7 @@ module OpenSecrets
     # @option options [optional, String] :cycle ("") 2008 or 2010.
     #
     def contributors(options = {})
-      raise ArgumentError, 'You must provide a :cid option' if options[:cid].blank?
+      raise ArgumentError, 'You must provide a :cid option' if options[:cid].nil? || options[:cid].empty?
       options.merge!({:method => 'candContrib'})
       self.class.get("/", :query => options)
     end
@@ -92,7 +92,7 @@ module OpenSecrets
     # @option options [optional, String] :cycle ("") blank values returns current cycle.
     #
     def industries(options = {})
-      raise ArgumentError, 'You must provide a :cid option' if options[:cid].blank?
+      raise ArgumentError, 'You must provide a :cid option' if options[:cid].nil? || options[:cid].empty?
       options.merge!({:method => 'candIndustry'})
       self.class.get("/", :query => options)
     end
@@ -106,8 +106,8 @@ module OpenSecrets
     # @option options [optional, String] :cycle ("") 2010, 2008 allowed. leave blank for latest cycle.
     #
     def contributions_by_industry(options = {})
-      raise ArgumentError, 'You must provide a :cid option' if options[:cid].blank?
-      raise ArgumentError, 'You must provide a :indcode option' if options[:indcode].blank?
+      raise ArgumentError, 'You must provide a :cid option' if options[:cid].nil? || options[:cid].empty?
+      raise ArgumentError, 'You must provide a :indcode option' if options[:indcode].nil? || options[:indcode].empty?
       options.merge!({:method => 'candIndByInd'})
       self.class.get("/", :query => options)
     end
@@ -120,7 +120,7 @@ module OpenSecrets
     # @option options [optional, String] :cycle ("") blank values returns current cycle.
     #
     def sector(options = {})
-      raise ArgumentError, 'You must provide a :cid option' if options[:cid].blank?
+      raise ArgumentError, 'You must provide a :cid option' if options[:cid].nil? || options[:cid].empty?
       options.merge!({:method => 'candSector'})
       self.class.get("/", :query => options)
     end
@@ -138,9 +138,9 @@ module OpenSecrets
     # @option options [String] :indus ("") Industry code
     #
     def by_industry(options = {})
-      raise ArgumentError, 'You must provide a :cmte option' if options[:cmte].blank?
-      raise ArgumentError, 'You must provide a :congno option' if options[:congno].blank?
-      raise ArgumentError, 'You must provide a :indus option' if options[:indus].blank?
+      raise ArgumentError, 'You must provide a :cmte option' if options[:cmte].nil? || options[:cmte].empty?
+      raise ArgumentError, 'You must provide a :congno option' if options[:congno].nil? || options[:congno].empty?
+      raise ArgumentError, 'You must provide a :indus option' if options[:indus].nil? || options[:indus].empty?
       options.merge!({:method => 'congCmteIndus'})
       self.class.get("/", :query => options)
     end
