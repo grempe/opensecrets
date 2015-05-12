@@ -26,6 +26,18 @@ module OpenSecrets
 
   class Member < OpenSecrets::Base
 
+    # Provides a list of Congressional legislators and associated attributes for specified subset (state, district or specific CID).
+    #
+    # See : https://www.opensecrets.org/api/?method=getLegislators&output=doc
+    #
+    # @option options [String] :id ("") two character state code, or 4 character district or specific CID
+    #
+    def get_legislators(options = {})
+      raise ArgumentError, 'You must provide a :id option' if options[:id].nil? || options[:id].empty?
+      options.merge!({:method => 'getLegislators'})
+      self.class.get("/", :query => options)
+    end
+
     # Returns Personal Financial Disclosure (PFD) information for a member of Congress.
     #
     # See : http://www.opensecrets.org/api/?method=memPFDprofile&output=doc
@@ -37,20 +49,6 @@ module OpenSecrets
       raise ArgumentError, 'You must provide a :cid option' if options[:cid].nil? || options[:cid].empty?
       raise ArgumentError, 'You must provide a :year option' if options[:year].nil? || options[:year].empty?
       options.merge!({:method => 'memPFDprofile'})
-      self.class.get("/", :query => options)
-    end
-
-    # Provides a list of trips paid for by private organizations taken by a specified member or their staff.
-    #
-    # See : http://www.opensecrets.org/api/?method=memTravelTrips&output=doc
-    #
-    # @option options [String] :cid ("") a CRP CandidateID
-    # @option options [String] :year ("") Get data for specified year.
-    #
-    def trips(options = {})
-      raise ArgumentError, 'You must provide a :cid option' if options[:cid].nil? || options[:cid].empty?
-      raise ArgumentError, 'You must provide a :year option' if options[:year].nil? || options[:year].empty?
-      options.merge!({:method => 'memTravelTrips'})
       self.class.get("/", :query => options)
     end
 
@@ -102,13 +100,13 @@ module OpenSecrets
     # See : http://www.opensecrets.org/api/?method=candIndByInd&output=doc
     #
     # @option options [String] :cid ("") a CRP CandidateID
-    # @option options [String] :indcode ("") a a 3-character industry code
-    # @option options [optional, String] :cycle ("") 2010, 2008 allowed. leave blank for latest cycle.
+    # @option options [String] :ind ("") a a 3-character industry code
+    # @option options [optional, String] :cycle ("") 2012, 2014 available. leave blank for latest cycle
     #
     def contributions_by_industry(options = {})
       raise ArgumentError, 'You must provide a :cid option' if options[:cid].nil? || options[:cid].empty?
-      raise ArgumentError, 'You must provide a :indcode option' if options[:indcode].nil? || options[:indcode].empty?
-      options.merge!({:method => 'candIndByInd'})
+      raise ArgumentError, 'You must provide a :ind option' if options[:ind].nil? || options[:ind].empty?
+      options.merge!({:method => 'CandIndByInd'})
       self.class.get("/", :query => options)
     end
 
@@ -147,5 +145,32 @@ module OpenSecrets
 
   end # committee
 
-end
+  class Organization < OpenSecrets::Base
 
+    # Look up an organization by name.
+    #
+    # See : https://www.opensecrets.org/api/?method=getOrgs&output=doc
+    #
+    # @option options [String] :org ("") name or partial name of organization requested
+    #
+    def get_orgs(options = {})
+      raise ArgumentError, 'You must provide a :org option' if options[:org].nil? || options[:org].empty?
+      options.merge!({:method => 'getOrgs'})
+      self.class.get("/", :query => options)
+    end
+
+    # Provides summary fundraising information for the specified organization id.
+    #
+    # See : https://www.opensecrets.org/api/?method=orgSummary&output=doc
+    #
+    # @option options [String] :org ("") CRP orgid (available via 'get_orgs' method)
+    #
+    def org_summary(options = {})
+      raise ArgumentError, 'You must provide a :id option' if options[:id].nil? || options[:id].empty?
+      options.merge!({:method => 'orgSummary'})
+      self.class.get("/", :query => options)
+    end
+
+  end # organization
+
+end
