@@ -2,19 +2,19 @@
 ```
 -----BEGIN PGP SIGNATURE-----
 
-iQIcBAABCgAGBQJVUYG9AAoJEOcWanfPl9CRG28QAJPwi8OuI1NAGoLS2c1T+oBE
-VkFUO8L6/1bjgk90H/x9AS9h1BBVIeYT99aom/on2TmrIuP7PlnbN3d1QDYPSOK+
-zjwamJrT4AS1RD95+cJKQfj5Bn7h/7Hz3J625tDN+gIRu0cm7SfQQqggPPA4i0H1
-CyP1Dom3aZ+typ0N6Ihe7dXFL8eLpwuw/aljRgy3HFjMInWeAQlhRNvxlvg46V0w
-d6Pj0z+A6eybzF4HyUz9ALvbtboXzyEsF32Rz8p2OwnXH89Nu9NciP9up89Ckfcw
-gOJUfjOb0vkJ7IXqX6W8N8Jzulz/eEiYy/t7awOpHUJ12e5MERvidAcLfRTwZIQR
-yT51tO/TcxaHOzL0KZz1dBAjubBioZoYumgWpZP6eHPD12wXYGpjb7oqXYgyJUCb
-lb89970VNTo3uLiioIGpBImfK3WH4ODniiV8w1Bz7Jdy6SWhXE5T3VcuKLFOJdKC
-2mP2j3vYWslSwX5R9W2xfqvisag8lCSzi2t//IWrFf1q9RpYrWHWOzOMXr+uvJHy
-Npur3MVkpFF0TUwEEPc++bcYnwaeWPIBY/fpz6zg8gWGORUdnOZEltyHxbUzL/KE
-3Kx62NGqzOtjBGAHaOqT6SwoLG2XJJSE6r8a/vJkMdb//RYnNruMx9k6ArsNrFD7
-5Mb+Cy5CI0u10KGofsdK
-=FpLR
+iQIcBAABCgAGBQJVUYj5AAoJEOcWanfPl9CRUZwQAIUesNCFZ1UdhgFeaoVxE1rL
+cOWu3q9mvzOvhjqedEL1pBJ25DMFqMyZT4wH4ptbkVdxbuMZsN8f8yclVS1n/A1J
+D7K0OkX0rz6UGbpt/pIRyx7rTRrWG+0RBt0ZiTMcqWYxyLDji/fLLNk5Im2eP3Cv
+fOC9ywjGraSus57Mu+LlCaUzJbqCbPvBv2a/5L1nu8Cd28x9DE6m/dlSoj4z4JZV
+V2f+ZmmVecsuSHjDAb7YWtssJP7mQZtqIPyGEeswZOJyLa/logUM0yyVLzkasuoL
+gY9rOpY+v8bj9k7TQ7cQuIJVTAvbjGxgOxtqZDMR51ckJ5ujz1QdXGMhD7pTqz8y
+numqBQgUrxa8uVDFKbBJyyBU0PMJnTq+AVOJ/OnTnDaHuLvMpo/CaxNOXSU3kCjo
+QBYT4aHAZ0br634zQ4b8NSnl8J7aJdYjgF9PGs8ya+zz8Gn926Nq2mCvGby16ppn
+9oG6B/LOQL+v60lMhRxO4Xm+CgExEK2PtlpWKc/LBBdl75FwKJsncpVmxO89j6Tg
+IJrYdtVRSXR9OAuhgCq2YWkQtfRxHjWRccw2x7xztIN8lJxaXipT2czPixV5UHG8
+MCp+bvxwyspNH9w5WCmwu6sXn4MLRQ5/yBe73bG6SoogwQqCexNmWA1oYmAwLwpY
+XODvhhC3IObOyIGvKQRj
+=Mem5
 -----END PGP SIGNATURE-----
 
 ```
@@ -35,7 +35,6 @@ size  exec  file                   contents
 1083          LICENSE              2ef4af99e0989630c65ad9ed28748e3219fba0796ab1f7ea7490bdebb5212fa4
 2255          README.md            09c2b474541c1609894fb4d56726023ff8bef3c109e63b5f7fdf696388c02ddc
 378           Rakefile             066bb53e4cc76b03705b6efc3630c6dc5e960a5df6d256dc3cd537ea80cc2abe
-6             VERSION              ae86e790678acc7fc14f18e559c2f8c4972634d5b1b74a2a297565b8c90f804a
               examples/                                                                            
 1442  x         example.rb         a441ac6ad0fc56eca8ded4d38b936b1cd580a1676b8552d8856872a45f6f3f22
               lib/                                                                                 
